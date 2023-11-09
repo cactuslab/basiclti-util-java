@@ -2,7 +2,7 @@ package org.imsglobal.lti;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import net.oauth.OAuthAccessor;
 import net.oauth.OAuthException;
 import net.oauth.OAuthMessage;

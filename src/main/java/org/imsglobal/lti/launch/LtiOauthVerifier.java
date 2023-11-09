@@ -3,7 +3,7 @@ package org.imsglobal.lti.launch;
 import net.oauth.*;
 import net.oauth.server.OAuthServlet;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.logging.Logger;

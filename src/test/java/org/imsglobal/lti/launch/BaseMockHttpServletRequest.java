@@ -4,11 +4,21 @@ package org.imsglobal.lti.launch;
 import org.apache.http.Header;
 import org.apache.http.HttpRequest;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletInputStream;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.AsyncContext;
+import jakarta.servlet.DispatcherType;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpUpgradeHandler;
+import jakarta.servlet.http.Part;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -326,5 +336,81 @@ public abstract class BaseMockHttpServletRequest implements HttpServletRequest {
             map.put(name, value);
         }
         return map;
+    }
+
+    @Override
+    public String changeSessionId() {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public boolean authenticate(HttpServletResponse response) throws IOException, ServletException {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public void login(String username, String password) throws ServletException {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public void logout() throws ServletException {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public Collection<Part> getParts() throws IOException, ServletException {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public Part getPart(String name) throws IOException, ServletException {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public <T extends HttpUpgradeHandler> T upgrade(Class<T> handlerClass) throws IOException, ServletException {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public long getContentLengthLong() {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public ServletContext getServletContext() {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public AsyncContext startAsync() throws IllegalStateException {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public AsyncContext startAsync(ServletRequest servletRequest, ServletResponse servletResponse)
+            throws IllegalStateException {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public boolean isAsyncStarted() {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public boolean isAsyncSupported() {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public AsyncContext getAsyncContext() {
+        throw new UnsupportedOperationException("unsupported");
+    }
+
+    @Override
+    public DispatcherType getDispatcherType() {
+        throw new UnsupportedOperationException("unsupported");
     }
 }
