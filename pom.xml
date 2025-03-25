@@ -7,7 +7,7 @@
         providers. They deal with much of the heavy lifting and make the process more opaque to the developer.
     </description>
     <url>https://github.com/IMSGlobal/basiclti-util-java</url>
-    <groupId>edu.kcg.org.imsglobal</groupId>
+    <groupId>org.imsglobal</groupId>
     <artifactId>basiclti-util</artifactId>
     <version>1.2.1-SNAPSHOT-jakarta</version>
     <organization>
@@ -102,7 +102,7 @@
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>edu.kcg.net.oauth.core</groupId>
+            <groupId>net.oauth.core</groupId>
             <artifactId>oauth-provider</artifactId>
             <version>20100601-jakarta</version>
         </dependency>
