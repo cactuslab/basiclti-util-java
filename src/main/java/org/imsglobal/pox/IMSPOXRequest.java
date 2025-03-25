@@ -39,6 +39,7 @@ import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.imsglobal.lti.XMLMap;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -600,9 +601,26 @@ public class IMSPOXRequest {
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpResponse response = client.execute(request);
 		if (response.getStatusLine().getStatusCode() >= 400) {
-			throw new HttpResponseException(response.getStatusLine().getStatusCode(),
-					response.getStatusLine().getReasonPhrase());
+			String detail = EntityUtils.toString(response.getEntity());
+			throw new IMSPOXException(response.getStatusLine().getStatusCode(),
+					response.getStatusLine().getReasonPhrase(),
+					detail);
 		}
+	}
+
+	public static class IMSPOXException extends IOException {
+
+		private final String detail;
+
+		public IMSPOXException(int statusCode, String message, String detail) {
+			super(statusCode + " " + message);
+			this.detail = detail;
+		}
+
+		public String getDetail() {
+			return this.detail;
+		}
+
 	}
 
 	public static HttpPost buildReplaceResult(String url, String key, String secret, String sourcedid, String score, String resultData, Boolean isUrl) throws IOException, OAuthException, GeneralSecurityException {
